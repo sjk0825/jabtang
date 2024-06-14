@@ -29,3 +29,28 @@
     - text, audio
   - (B) shifting the window
 </details>
+
+### reasoning
+<details>
+  <summary>TransNAR</summary>
+  
+  - 딥마인드 Transformers meet Neural Algorithmic Reasoners 
+  - Transformer는 정확한 정보와 추론을 요구하는 algorithmic reasoning에 상대적으로 약한 성능을 보임
+  - 이를 완화하기 위해 Transformer와 GNN을 결합한 architecture를 제안
+  - GNN Node cross attention
+</details>
+
+### agent
+<details>
+  <summary>Mixture of Agent</summary>
+  
+  - 각 agent들의 답변을 aggregator가 취합/통일 하여 다름 layer로 넘김.이 과정을 몇 layer 반복
+  - https://github.com/run-llama/llama_index/blob/main/llama-index-packs/llama-index-packs-mixture-of-agents/README.md
+  ```
+  from llama_index.core.llama_pack import download_llama_pack 
+  # download and install dependencies
+  MixtureOfAgentsPack = download_llama_pack(
+      "MixtureOfAgentsPack", "./mixture_of_agents_pack"
+  )
+  ```
+</details>
