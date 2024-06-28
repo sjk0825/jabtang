@@ -1,4 +1,14 @@
 
+### DATA
+<details>
+  <summary>DataComp-LM</summary>
+
+  - DataComp-LM: In search of the next generation of training sets for language models
+  - controlled comparison LM을 위한 데이터 방법론들을 위한 벤치마크를 제공 (DCLM benchmark)
+  - raw인 DCLM-pool부터 data 전처리 전략을 적용한 DCLM-BaseLine
+  - 각 데이터 전처리 전략의 BEST 결과를 report (ex. For ECLM-Pool and remaining experiments, we use resiliparse to extract text)
+</details>
+
 ### STT
 <details>
   <summary>whispher</summary>
