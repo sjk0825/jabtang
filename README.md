@@ -64,3 +64,18 @@
   )
   ```
 </details>
+
+### fast inference
+<details>
+  <summary>quantization</summary>
+
+  - Quantization infernece
+    - AI 모델 bit 압축하여 메모리/속도 향상
+    - 변경된 bit 따라 value(numeric) scale이 달라짐 (scale 상수) -> 양자화된 값, 역양자화된 값 모두 scale방식으로 구할 수 있음. 이때, scale로 나눠주면 또 float과 같은 bit이 필요하다고 생각할 수있지만 반올림하기에 quant bit으로 표현가능 (단 역양자화때 오차있음)
+    - ex. FP32 -> INT8
+  - PTQ (Post-Training Quant) 훈련후 양자화 (GPTQ, GGUF/GGML, AWQ)
+  - QAT (Quant-aware Traing)
+    - 훈련하면서 양자화
+    - base model -> quant Forward -> loss -> no Quant gradient -> base model update
+    - low bit 으로 처음부터 하는것보다 우수한가..
+</details>
