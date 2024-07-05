@@ -79,3 +79,14 @@
     - base model -> quant Forward -> loss -> no Quant gradient -> base model update
     - low bit 으로 처음부터 하는것보다 우수한가..
 </details>
+
+### time-series prediction
+<details>
+  <summary>
+    gradient-boosting
+  </summary>
+
+  - 의사결정 트리에서 잔차학습을 통해 regression 예측. 앙상블과 다르게 여러 모델이 이전 모델의 부족한 부분을 sequential하게 학습 (노드는 훈련시 loss, Information 여부따라 추가되는듯)
+  - LightBGM의 경우 훈련시 의사결정 노드를 수직으로만 확장하여 영향이 큰 노드만 남아있음 -> 속도 향상
+  - 아마존 수요예측에서 top-rank 모델들이 활용한 모델 https://www.kaggle.com/competitions/m5-forecasting-accuracy/overview
+</details>
