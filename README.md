@@ -90,3 +90,14 @@
   - LightBGM의 경우 훈련시 의사결정 노드를 수직으로만 확장하여 영향이 큰 노드만 남아있음 -> 속도 향상
   - 아마존 수요예측에서 top-rank 모델들이 활용한 모델 https://www.kaggle.com/competitions/m5-forecasting-accuracy/overview
 </details>
+<details>
+  <summary>
+    Rolled DeepAR
+  </summary>
+
+  - Robust recurrent network model for intermittent time-series forecasting
+  - teach forcing 없는 DeepAR. DeepAR 은 RNN 기반의 time-series forecasting 모델로 공변량을 입력한다. (teach forshing 없으면 error가 다음 inference에 전달 된다고 볼 수있으나, 본 논문에서는 high zero, intermittent data + 낮은 level(day) data sum -> high level (week) 이기에 augmentation 이자 robust 역할도 한다고 함
+  - (B) tweedie distribution. EDMs의 일종으로 p param에 따라 포아송 분포가 되기도 함. p따라 zero 범위가 달라지는데, zero 값이 많은 m5 데이터셋을 훈련하기 위해 target distribution으로 적합하다고 함
+  - sequential feature. 모델에 입력되는 순차정보들은 sales, price 등이 있고 raw값과 moving average, norm value by store.. 등이 입력됨
+  - categorial feature. 카테고리 정보들은 nlp의 vocab과 같이 embedding table통해 입력됨
+</details>
