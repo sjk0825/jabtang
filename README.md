@@ -83,6 +83,15 @@
 ### time-series prediction
 <details>
   <summary>
+    How is AI being applied to time series forecasting?
+  </summary>
+
+  - https://research.ibm.com/blog/AI-time-series-forecasting
+  - models: TST(Time Series Transformer), PatchTST, PatchTSMixer, Tiny Time mixers
+  - data: Monash Time Series Forecasting Repository (https://arxiv.org/pdf/2105.06643). open time-series repository. paper에 여러 시계열 데이터에 대한 baseline 성능 있음
+</details>
+<details>
+  <summary>
     gradient-boosting
   </summary>
 
