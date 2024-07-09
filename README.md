@@ -82,6 +82,31 @@
 
 ### time-series prediction
 <details>
+  <summary>patchTST</summary>
+
+  - multivatriate timme series forecasting
+    - 여러개의 종속변수
+    - 논문에서 다루는 data 들이 multivariate 이지만 model은 하나의 모델로 univariate 형태로 독립적으로 다양한 variable을 학습 및 추론함
+  - channel-independence
+    - transformer 입력될 때 여러 변수들이 mixing(ex. TST 처럼) 되어 입력되지 않고 각각 따로 입력 및 출력됨
+    - cross variable 학습이 안된다고 생각할 수 있지만 저자말로는 하나의 모델로 여러 변수를 학습해기에 각 변수 간 영향 끼친다고 함
+  - subseries-level patch
+    - timet 로 stride 기간 별로 묶어 embedding 하여 모델에 입력. local semantic을 학습하게 되고 attention 이 channel 독립적으로 되기에 computation and memory save
+    - look back window를 늘려 long-history 봄
+  - representation learning. ~= patch MLM
+</details>
+<details>
+  <summary>
+    TST (Time Series Transformer)
+  </summary>
+
+  - IBM KDD 2021
+  - multivariate time series. 종속변수가 여러개인 시계열
+    - 이 논문에서는 embedding 시 변수간 mixing 하는걸로 보임
+  - learnable positional embedding, batch norm (outlier value mitigate), final representation X class n or 1 (regression)
+  - unsupervised (self-suspervised) training. ~= MLM  but masked sequence.
+</details>
+<details>
   <summary>
     How is AI being applied to time series forecasting?
   </summary>
