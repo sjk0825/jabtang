@@ -79,6 +79,14 @@
     - base model -> quant Forward -> loss -> no Quant gradient -> base model update
     - low bit 으로 처음부터 하는것보다 우수한가..
 </details>
+<details>
+  <summary>
+    MoE
+  </summary>
+
+  - LLM에서 next module (FFN) 을 통과하게 route([more] token)을 통해 부분 expert만 통과하도록 하는 기법
+  - k개의 exxpert를 활용하고 싶다면 top k 의 logit으로 다시 softmax 후 FFN 결과들을 weighted sum
+</details>
 
 ### time-series prediction
 <details>
@@ -134,4 +142,27 @@
   - (B) tweedie distribution. EDMs의 일종으로 p param에 따라 포아송 분포가 되기도 함. p따라 zero 범위가 달라지는데, zero 값이 많은 m5 데이터셋을 훈련하기 위해 target distribution으로 적합하다고 함
   - sequential feature. 모델에 입력되는 순차정보들은 sales, price 등이 있고 raw값과 moving average, norm value by store.. 등이 입력됨
   - categorial feature. 카테고리 정보들은 nlp의 vocab과 같이 embedding table통해 입력됨
+</details>
+
+### basic
+<details>
+  <summary>
+    entropy
+  </summary>
+
+  - entropy
+    - 사건이 일어날 때의 정보량 기댓값으로, 모든 사건의 확률이 같을 때 가장 높은 엔트로피 가짐
+    - I(x) = log 1/p(x) = -logp(x). 섀넌의 정보이론에서는 기본단위가 bit이기에 정보량을 필요 비트로 나타냄 -> log_2로 얻을 수있음 . -log2_2 = 1bit 필요
+  - cross entropy
+    - 정답 분포 p를 통해 학습하는 분포 Q의 정보량을 줄이고자 한다.
+    - sum p(x) log Q(x)
+  - perplexity
+    - 언어모델의 성능 평가 metric중 하나로 문장 길이로 norm된 확률값.
+    - root_n(1/p(i) + p(i-1)...p)
+    - 사건이 발생할 확률(정보량)을 sequential하게 측정한다는 점에서 entropy 개념과 관계있음
+
+  - BM25
+    - 검색하는 Query와 다른 문서들의 연관성을 평가하는 알고리즘
+    - TF-IDF (Term-frequency(문성 D에서 q의 frequency) Inverse-document frequency(전체문서에서 word count)
+    - score (document,query) = n sum(q) IDF(q) * TF norm
 </details>
