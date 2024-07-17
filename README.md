@@ -84,7 +84,7 @@
     MoE
   </summary>
 
-  - LLM에서 next module (FFN) 을 통과하게 route([more] token)을 통해 부분 expert만 통과하도록 하는 기법
+  - LLM에서 next module (FFN) 을 통과하게 route(each token)을 통해 부분 expert만 통과하도록 하는 기법
   - k개의 exxpert를 활용하고 싶다면 top k 의 logit으로 다시 softmax 후 FFN 결과들을 weighted sum
 </details>
 
