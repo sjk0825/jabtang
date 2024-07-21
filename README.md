@@ -8,6 +8,26 @@
   - raw인 DCLM-pool부터 data 전처리 전략을 적용한 DCLM-BaseLine
   - 각 데이터 전처리 전략의 BEST 결과를 report (ex. For ECLM-Pool and remaining experiments, we use resiliparse to extract text)
 </details>
+<details>
+  <summary>KLUE (Korean Language Understanding Evaluation)</summary>
+
+  - annotator: selectStars
+  - 8 task. TC, STS, NLI, NER, RE, DP, MRC, DST
+  - noise filtering. hashtag, spaces, copyright tags etc remove, 20 char 이상 중국어, 일본어 filter, toxic content removal (hate speech detection), PII removal (regex)
+  - STS
+    - AIRBNB, Formal news 등에서 random으로 sentence 선택 후 rouge 높은 sentence pair 준비. annotator가 sentence-level 유사성 labeling
+    - 0~5 bins의 분포 차이 있지만 eval/test는 uniform하게 준비
+  - NLI
+    - 한명의 annotator가 주어진 문장으로부터 NLI 관계 문장 생성하면 나머지 annotator의 majority 일치시 set에 포함
+</details>
+<details>
+  <summary>Kor-NLU (kor-sts, kor-nli)</summary>
+
+  - kor-sti. sts-b가 train/dev/eval 모두
+  - kor-nli. train(snli, mnli), dev/test(xnli)
+  - train은 기계번역(어디껀지 안나와있는듯) test/dev는 기계번역 -> 번역 전문가가 post editing
+  - cross/bi encoding. simcse 논문 방식으로 훈련시 xlm이 ko-pretrained 보다 성능 높음
+</details>
 
 ### STT
 <details>
