@@ -4,6 +4,7 @@
   <summary>LLAVA</summary>
 
   - microsoft research. first instruct-multi modal data + baseline 제공
+  - https://huggingface.co/docs/transformers/model_doc/llava , LlavaForConditionalGeneration
   - CLIP
       - Llava 에서 활용한 visual encoder
       - image와 짧은 description을 contrastive learning
