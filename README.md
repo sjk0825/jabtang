@@ -106,6 +106,11 @@
 
   - LLM에서 next module (FFN) 을 통과하게 route(each token)을 통해 부분 expert만 통과하도록 하는 기법
   - k개의 exxpert를 활용하고 싶다면 top k 의 logit으로 다시 softmax 후 FFN 결과들을 weighted sum
+  - Load balancing: 각 expert에 할당된 batch  연산 정해져있음(scale factor로 조정가능). 할당량 넘으면 residual connection으로 넘기기도함.
+  - Fine-tuning시 불안정하기도 한데, second는 random으로보내서 overfitting 방지
+  - 분산훈련으로 expert parallelism도 가능
+  - Noisy Top-k Gating. softmax(H) 에서 H에 x널때 noise weight 같이 수행
+  - MoE communication cost → 물리적 (ex device) 간의 통신 비용 
 </details>
 
 ### time-series prediction
