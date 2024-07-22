@@ -1,4 +1,30 @@
 
+### multi-modal
+<details>
+  <summary>LLAVA</summary>
+
+  - microsoft research. first instruct-multi modal data + baseline 제공
+  - CLIP
+      - Llava 에서 활용한 visual encoder
+      - image와 짧은 description을 contrastive learning
+      - clip image encoder로는 resnet,ViT가 고려됐었고 ViT가 더 높은 성능
+  - vicuna
+      - llava에서 활용한 language decoder
+      - 오픈소스 챗봇으로 sharedGPT(사용자와 gpt 대화) 로부터 수집된 사용자들의 대화로 llama를 finetuning한 모델
+  - symbolic representation
+    - 저자는 multi-modal instruct data 를 text-only GPT만을 활용해 만들기 위해 symbolic representation을 활용
+    - captions, bounding box(객체, 좌표)
+  - visual linear layer
+    - image encoder가 LM모델에 입력전 거치는 layer로 훈련
+  - systematic understanding
+    - 저자는 approximate theorical upperbound를 제공하기 위해 text-only GPT 4의 결과와 실험모델의 답변을 GPT4 가 judge
+  - LLAVA-Bench *
+    - coco version (coco-val-2014. 3 type question), in-the wild version (novel domain)
+  - scienceQA
+    - https://paperswithcode.com/dataset/scienceqa
+  - ablation 결과 CC3M 으로 pretraining이 성능에 큰 영향
+</details>
+
 ### DATA
 <details>
   <summary>DataComp-LM</summary>
