@@ -55,6 +55,28 @@
   - train은 기계번역(어디껀지 안나와있는듯) test/dev는 기계번역 -> 번역 전문가가 post editing
   - cross/bi encoding. simcse 논문 방식으로 훈련시 xlm이 ko-pretrained 보다 성능 높음
 </details>
+<details>
+  <summary>MIRACL</summary>
+
+  - multi lingual IR https://arxiv.org/abs/2210.09984
+  - miracl
+    - 다언어 정보 반환 Data로, 18 lang에 korean 포함
+    - 한국 -> Q 868, J 12767
+    - Mr. Tydi 기반으로 만들어짐 (source, build process, augmentation projection)
+  - wikipedia dump
+    - My. Tydi 와 같은 lang에는 같은 dump 2019.2.1 (segmentation은 다름)
+    - 새로운 lang 에는 2022.3.1
+    - wiki extractor
+  - relevant passage projection
+    - My. TyDi 에서 기존 annotation 한 정보로 새로운 corpora에 적용하기 위한 방법
+    - (B) annotator의 query 생성 -> retrieval system (BM25, mDPR, colbert) -> My. TyDi passage 중 가까운 것 가져와 passage augment -> finally human annotation
+  - nDCG
+    - https://data-scient2st.tistory.com/193
+    - CG (Cumulated Gain)
+    - DCG (Discounted Cumulated Gain)
+    - IDCG (Idal Discounted Cumulated Gain)
+  - recall.  TP / (TP + FN) 실제 정답의 수 중 정답 맞춘 비율
+    
 
 ### STT
 <details>
