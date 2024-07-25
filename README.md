@@ -72,9 +72,9 @@
     - (B) annotator의 query 생성 -> retrieval system (BM25, mDPR, colbert) -> My. TyDi passage 중 가까운 것 가져와 passage augment -> finally human annotation
   - nDCG
     - https://data-scient2st.tistory.com/193
-    - CG (Cumulated Gain)
-    - DCG (Discounted Cumulated Gain)
-    - IDCG (Idal Discounted Cumulated Gain)
+    - CG (Cumulated Gain). 관련성 점수 누적
+    - DCG (Discounted Cumulated Gain). 관련성 점수를 순위로 norm하여 중요도(순위)에 따라 누적값 크게 줌
+    - IDCG (Idal Discounted Cumulated Gain). 예측 DCG / 이상적인 DCG
   - recall.  TP / (TP + FN) 실제 정답의 수 중 정답 맞춘 비율
 </details>
 
