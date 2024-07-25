@@ -76,7 +76,7 @@
     - DCG (Discounted Cumulated Gain)
     - IDCG (Idal Discounted Cumulated Gain)
   - recall.  TP / (TP + FN) 실제 정답의 수 중 정답 맞춘 비율
-    
+</details>
 
 ### STT
 <details>
