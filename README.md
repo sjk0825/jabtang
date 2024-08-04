@@ -123,6 +123,16 @@
 
 ### agent
 <details>
+  <summary>
+    LLM function callings
+  </summary>
+
+  - mistral https://docs.mistral.ai/capabilities/function_calling/
+  - openai https://platform.openai.com/docs/guides/function-calling
+  - llama https://docs.llama-api.com/essentials/function
+    - 직접 파싱 https://python.langchain.com/v0.1/docs/modules/model_io/output_parsers/
+</details>
+<details>
   <summary>Mixture of Agent</summary>
   
   - 각 agent들의 답변을 aggregator가 취합/통일 하여 다름 layer로 넘김.이 과정을 몇 layer 반복
