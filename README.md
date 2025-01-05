@@ -28,6 +28,33 @@
   - ablation 결과 CC3M 으로 pretraining이 성능에 큰 영향
 </details>
 
+### DATA - technic
+<details>
+  <summary>Distribution-Balanced Loss for Multi-Label Classification in Long-Tailed Datasets</summary>
+
+  - 총 2가지 사항을 고려하여 아래 re-sampling과 re-balancing을 수행함
+  - re-sampling: 하나의 instance가 여러 class에 포함될 때 (co-occurance)를 고려하는 sampling
+    - class level frequency Pc(x).
+      - 조건: co-occurance를 고려하지 않고 각 class가 동일하게 추출되도록 sampling
+      - n_i: class i의 sample 수
+      - instance x가 추출될 확률 1/n_i
+      - 그런데, 각 class가 뽑힐 확률은 동일하니까 전체에서 x의 frequency는 1/c * 1/n_i
+  - re-balacing
+    - sigmoid 를 통해 수행되는 BCE
+      - class 1 pos (up) neg
+      - class 2 pos .. neg ..(up)
+      - class 3 pos.... neg...
+      - 각 class가 독립적으로, 동일한 크기로 학습됨
+    - softmax를 통해 수행되는 CE
+      - class 1 pos + class neg ..
+      -> pos와 neg가 서로의 학습크기에 영향끼침. pos (up), neg (down)...
+    - NTR (negative tolerant regulization)
+      - BCE 방식은 neg에 편향되는 학습결과를 가져옴. -> tail class일수록 threshold passive 해지는데, 이걸 전체 분포 고려해서 bias 설정
+      - BCE logit에 bias를 추가해
+          - pos는 logit-bias를 b 이상으로 학습
+          - neg는 logit+bias로 b 이하되도록 학습
+</details>
+
 ### DATA
 <details>
   <summary>DataComp-LM</summary>
